@@ -69,6 +69,9 @@ COPY --from=builder /usr/local/bundle /usr/local/bundle
 # Copy application
 COPY --from=builder --chown=app:app /app /app
 
+# Explicitly copy bin directory to ensure start-production script exists
+COPY --from=builder --chown=app:app /app/bin /app/bin
+
 # Make start script executable
 RUN chmod +x bin/start-production
 

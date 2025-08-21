@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+
+# Wait for database to be ready
+echo "Waiting for database to be ready..."
+until bundle exec rails runner "ActiveRecord::Base.connection.execute('SELECT 1')" > /dev/null 2>&1; do
+  echo "Database is unavailable - sleeping"
+  sleep 2
+done
+
+echo "Database is ready!"
+
+# Run database migrations
+echo "Running database migrations..."
+bundle exec rails db:migrate
+
+# Seed database if needed (only on first run)
+if [ "$SEED_DATABASE" = "true" ]; then
+  echo "Seeding database..."
+  bundle exec rails db:seed
+fi
+
+# Precompile assets if needed
+if [ "$PRECOMPILE_ASSETS" = "true" ]; then
+  echo "Precompiling assets..."
+  bundle exec rails assets:precompile
+fi
+
+# Start the Rails server
+echo "Starting Rails server..."
+exec bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000} -e $RAILS_ENV

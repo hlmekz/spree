@@ -213,6 +213,7 @@ GEM
       railties (>= 5.0.0)
     ffaker (2.24.0)
     ffi (1.17.2-x64-mingw-ucrt)
+    ffi (1.17.2-x86_64-linux-musl)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     friendly_id-mobility (1.0.4)
@@ -336,6 +337,8 @@ GEM
       net-protocol
     nio4r (2.7.4)
     nokogiri (1.18.9-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
     observer (0.1.2)
     ostruct (0.6.3)
@@ -521,6 +524,8 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sqlite3 (2.7.3-x86_64-linux-musl)
+    stackprof (0.2.27)
     state_machines (0.100.1)
     state_machines-activemodel (0.100.0)
       activemodel (>= 7.2)
@@ -574,6 +579,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux-musl
 
 DEPENDENCIES
   awesome_print

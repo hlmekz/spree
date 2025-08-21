@@ -34,7 +34,7 @@ group :test do
   gem 'rswag-specs'
   gem 'jsonapi-rspec'
   gem 'simplecov'
-  gem 'stackprof', '~> 0.2.27', platforms: [:ruby]
+  gem 'stackprof'
   gem 'webmock'
   gem 'timecop'
   gem 'test-prof'

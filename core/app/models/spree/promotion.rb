@@ -148,7 +148,6 @@ module Spree
         # connect to the order
         # create the join_table entry.
         order.promotions << self
-        save
       end
 
       action_taken
@@ -175,7 +174,6 @@ module Spree
         # connect to the order
         # create the join_table entry.
         order.promotions.delete(self)
-        save
       end
 
       action_taken

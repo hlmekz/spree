@@ -72,6 +72,9 @@ COPY --from=builder --chown=app:app /app /app
 # Make start script executable
 RUN chmod +x bin/start-production
 
+# Ensure start-production script exists and is executable
+RUN ls -la bin/ && test -f bin/start-production
+
 # Switch to app user
 USER app
 

@@ -54,7 +54,8 @@ RUN apk add --no-cache \
     imagemagick \
     vips \
     tzdata \
-    curl
+    curl \
+    bash
 
 # Create app user
 RUN addgroup -g 1000 -S app && \
